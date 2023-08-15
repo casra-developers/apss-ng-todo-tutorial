@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'app-todo-card',
@@ -7,4 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoCardComponent {
   @Input() id: number;
+  @Input() todo: Todo;
+
+  
 }
