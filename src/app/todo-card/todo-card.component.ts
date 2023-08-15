@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../models/todo';
 
 @Component({
@@ -10,5 +10,9 @@ export class TodoCardComponent {
   @Input() id: number;
   @Input() todo: Todo;
 
-  
+  @Output() toogleDone = new EventEmitter<number>();
+
+  onToogleDone(id: number): void {
+    this.toogleDone.emit(id);
+  }
 }

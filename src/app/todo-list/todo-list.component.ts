@@ -24,5 +24,9 @@ export class TodoListComponent implements OnInit {
     ];
   }
 
-
+  onToogleDone(id: number): void {
+    this.todos.map((value, i) => {
+      if (id === i) value.completed = !value.completed;
+    });
+  }
 }
