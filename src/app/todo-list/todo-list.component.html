@@ -2,7 +2,5 @@
     <h1>{{ title }}</h1>
   </header>
   <div class="todos">
-    <app-todo-card></app-todo-card>
-    <app-todo-card></app-todo-card>
-    <app-todo-card></app-todo-card>
+    <app-todo-card *ngFor="let todo of todos; let i = index"></app-todo-card>
   </div>
