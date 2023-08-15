@@ -11,8 +11,13 @@ export class TodoCardComponent {
   @Input() todo: Todo;
 
   @Output() toogleDone = new EventEmitter<number>();
+  @Output() removeTodo = new EventEmitter<number>();
 
   onToogleDone(id: number): void {
     this.toogleDone.emit(id);
+  }
+
+  onRemoveTodo(id: number): void {
+    this.removeTodo.emit(id);
   }
 }

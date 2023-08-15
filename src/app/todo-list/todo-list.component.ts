@@ -29,4 +29,8 @@ export class TodoListComponent implements OnInit {
       if (id === i) value.completed = !value.completed;
     });
   }
+
+  onRemoveTodo(id: number): void {
+    this.todos = this.todos.filter((value, i) => id !== i);
+  }
 }
