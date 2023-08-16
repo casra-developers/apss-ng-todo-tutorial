@@ -10,7 +10,6 @@ import { TodoService } from '../services/todo.service';
 export class TodoListComponent implements OnInit {
   title = 'Todo List';
 
-  todos: Todo[];
   todos$ = this.todosService.todos$;
 
   constructor(private todosService: TodoService) {}
@@ -20,9 +19,7 @@ export class TodoListComponent implements OnInit {
   }
 
   onToogleDone(id: number): void {
-    this.todos.map((value, i) => {
-      if (id === i) value.completed = !value.completed;
-    });
+    this.todosService.toogleDone(id);
   }
 
   onRemoveTodo(id: number): void {

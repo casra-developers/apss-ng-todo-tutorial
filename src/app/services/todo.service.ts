@@ -29,6 +29,13 @@ export class TodoService {
     this.load();
   }
 
+  toogleDone(id: number): void {
+    this.todoList.map((value, i) => {
+      if (id === i) value.completed = !value.completed;
+    });
+    this.load();
+  }
+
   todoList = [
     {
       content: 'First task',
