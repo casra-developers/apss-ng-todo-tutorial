@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,18 +11,12 @@ export class TodoListComponent implements OnInit {
   title = 'Todo List';
 
   todos: Todo[];
+  todos$ = this.todosService.todos$;
+
+  constructor(private todosService: TodoService) {}
 
   ngOnInit(): void {
-    this.todos = [
-      {
-        content: 'First task',
-        completed: false
-      },
-      {
-        content: 'Second task',
-        completed: true
-      }
-    ];
+    this.todosService.load();
   }
 
   onToogleDone(id: number): void {
@@ -31,6 +26,6 @@ export class TodoListComponent implements OnInit {
   }
 
   onRemoveTodo(id: number): void {
-    this.todos = this.todos.filter((value, i) => id !== i);
+    this.todosService.remove(id);
   }
 }
