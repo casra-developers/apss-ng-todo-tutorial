@@ -19,13 +19,21 @@ export class TodoService {
       },
       error: (err) => {
         console.log('err', err);
-        
+
       }
     });
   }
 
   remove(id: number): void {
     this.todoList = this.todoList.filter((value, i) => id !== i);
+    this.load();
+  }
+
+  add(content: string): void {
+    this.todoList.push({
+      content: content,
+      completed: false
+    });
     this.load();
   }
 

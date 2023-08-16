@@ -12,6 +12,8 @@ export class TodoListComponent implements OnInit {
 
   todos$ = this.todosService.todos$;
 
+  inputTodo = '';
+
   constructor(private todosService: TodoService) {}
 
   ngOnInit(): void {
@@ -24,5 +26,10 @@ export class TodoListComponent implements OnInit {
 
   onRemoveTodo(id: number): void {
     this.todosService.remove(id);
+  }
+
+  addTodo(): void {
+    this.todosService.add(this.inputTodo);
+    this.inputTodo = '';
   }
 }
