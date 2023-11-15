@@ -14,12 +14,22 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
     this.todos = [
       {
-        content: 'First task',
-        completed: false
+        id: 1,
+        todo: 'First task',
+        completed: false,
+        userId: 1
       },
       {
-        content: 'Second task',
-        completed: true
+        id: 2,
+        todo: 'Second task',
+        completed: true,
+        userId: 1
+      },
+      {
+        id: 3,
+        todo: 'Third task',
+        completed: false,
+        userId: 2
       }
     ];
   }

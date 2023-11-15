@@ -1,4 +1,6 @@
 export class Todo {
-    content: string;
+    id: number;
+    todo: string;
     completed: boolean;
+    userId: number;
 }

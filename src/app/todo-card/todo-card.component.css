@@ -18,7 +18,13 @@
 }
 
 .todo .content {
-	flex: 1 1 100%;
+	flex: 1 1 75%;
+	padding-right: 10px;
+}
+
+.todo .user {
+	flex: 1 1 25%;
+	padding-right: 10px;
 }
 
 .todo.done .content {

@@ -1,5 +1,5 @@
 <div class="todo {{ todo.completed ? 'done' : '' }}">
-  <div class="id">{{ id }}</div>
-  <div class="content" (click)="onToogleDone(id)">{{ todo.content }}</div>
+  <div class="id">{{ todo.id }}</div>
+  <div class="content" (click)="onToogleDone(id)">{{ todo.todo }}</div>
   <button class="delete" (click)="onRemoveTodo(id)" >remove</button>
 </div>
