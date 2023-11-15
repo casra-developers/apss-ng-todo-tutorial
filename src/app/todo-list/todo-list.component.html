@@ -1,9 +1,9 @@
 <header>
   <h1>{{ title }}</h1>
 </header>
-<div class="todos" *ngIf="!isLoading; else loading">
+<div class="todos" *ngIf="!(isLoading$ | async); else loading">
   <app-todo-card
-    *ngFor="let todo of todos; let i = index"
+    *ngFor="let todo of todos$ | async; let i = index"
     [id]="i"
     [todo]="todo"
     (toogleDone)="onToogleDone($event)"
