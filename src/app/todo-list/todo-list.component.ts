@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,28 +11,21 @@ export class TodoListComponent implements OnInit {
   title = 'Todo List';
 
   todos: Todo[];
+  isLoading = true;
+
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todos = [
-      {
-        id: 1,
-        todo: 'First task',
-        completed: false,
-        userId: 1
+    this.todoService.load().subscribe({
+      next: (res: any) => {
+        this.todos = res.todos as Todo[];
+        this.isLoading = false;
       },
-      {
-        id: 2,
-        todo: 'Second task',
-        completed: true,
-        userId: 1
-      },
-      {
-        id: 3,
-        todo: 'Third task',
-        completed: false,
-        userId: 2
+      error: er => {
+        console.log(er);
+        this.isLoading = false;
       }
-    ];
+    });
   }
 
   onToogleDone(id: number): void {

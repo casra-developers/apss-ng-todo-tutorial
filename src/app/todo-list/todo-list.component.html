@@ -1,7 +1,7 @@
 <header>
   <h1>{{ title }}</h1>
 </header>
-<div class="todos">
+<div class="todos" *ngIf="!isLoading; else loading">
   <app-todo-card
     *ngFor="let todo of todos; let i = index"
     [id]="i"
@@ -10,3 +10,4 @@
     (removeTodo)="onRemoveTodo($event)"
   ></app-todo-card>
 </div>
+<ng-template #loading><img src="/assets/spinner-2.gif" /></ng-template>
